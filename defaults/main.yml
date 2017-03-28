@@ -1,0 +1,5 @@
+---
+nodejs_apt_key: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+nodejs_apt_repositories:
+  - "deb https://deb.nodesource.com/node_6.x xenial main"
+  - "deb-src https://deb.nodesource.com/node_6.x xenial main"

@@ -1,0 +1,24 @@
+---
+- name: Install dependencies
+  apt:
+    state: present
+    name: "{{ item }}"
+  with_items:
+    - apt-transport-https
+    - lsb-release
+
+- name: Install node GPG apt key
+  apt_key:
+    url: "{{ nodejs_apt_key }}"
+    state: present
+
+- name: Install nodejs apt repositories
+  apt_repository:
+    repo: "{{ item }}"
+    update_cache: yes
+  with_items: "{{ nodejs_apt_repositories }}"
+
+- name: Install nodejs
+  apt:
+    name: nodejs
+    state: latest
